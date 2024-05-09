@@ -11,7 +11,7 @@ import {
   addtoggleCheckBox,
   addphoneValidation,
   addcheckBoxValidation,
-} from '../store/login-slice';
+} from '../store/LoginSlice';
 import {useDispatch, useSelector} from 'react-redux';
 import {
   checkBoxerror,

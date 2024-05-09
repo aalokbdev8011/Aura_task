@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import loginReducer from './login-slice';
-import otpReducer from './otp-slice';
+import loginReducer from './LoginSlice';
+import otpReducer from './OtpSlice';
 
 export const store = configureStore({
   reducer: {

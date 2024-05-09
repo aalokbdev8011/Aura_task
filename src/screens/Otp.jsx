@@ -6,7 +6,7 @@ import Checkboxes from '../assets/Checkboxes.png';
 import {useNavigation} from '@react-navigation/native';
 import axios from 'axios';
 import {useDispatch, useSelector} from 'react-redux';
-import {addOtpValue, showSuccessMsg, showErrorMsg} from '../store/otp-slice';
+import {addOtpValue, showSuccessMsg, showErrorMsg} from '../store/OtpSlice';
 import {
   otpHeading,
   otpSecondaryText,
@@ -14,6 +14,7 @@ import {
   errorMessage,
   successMessage,
   resend,
+  BASE_URL,
 } from '../config';
 
 const Otp = ({route}) => {
@@ -52,10 +53,7 @@ const Otp = ({route}) => {
       return;
     }
     try {
-      const response = await axios.post(
-        'https://43qnpd4vyhy42yyubka7a3jbum0ydmrk.lambda-url.eu-central-1.on.aws/',
-        {otp: otpValue},
-      );
+      const response = await axios.post(BASE_URL, {otp: otpValue});
       const otpResponse = response.data;
       if (otpResponse) {
         disptach(showSuccessMsg(true));
